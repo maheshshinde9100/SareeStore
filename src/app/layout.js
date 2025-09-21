@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { TrialBagProvider } from "../providers/trial-bag";
+import FloatingWhatsApp from "../components/floating-whatsapp";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <FloatingWhatsApp />
         </TrialBagProvider>
       </body>
     </html>

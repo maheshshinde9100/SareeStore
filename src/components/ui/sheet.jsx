@@ -5,7 +5,7 @@ export function Sheet({ open, onClose, side = "right", width = 380, children }) 
   return (
     <>
       <div
-        className={`fixed inset-0 z-40 bg-black/30 transition-opacity ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-40 bg-maroon/20 transition-opacity ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
         onClick={onClose}
       />
       <div

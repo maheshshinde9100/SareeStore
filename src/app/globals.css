@@ -64,8 +64,60 @@ body {
 /* Subtle pattern background using gradients to evoke textile motif */
 .motif-bg {
   background-image:
-    radial-gradient(closest-side, rgba(212, 175, 55, 0.12), transparent 70%),
-    radial-gradient(closest-side, rgba(122, 31, 43, 0.08), transparent 70%);
-  background-size: 20px 20px, 28px 28px;
+    radial-gradient(closest-side, rgba(212, 175, 55, 0.10), transparent 70%),
+    radial-gradient(closest-side, rgba(122, 31, 43, 0.06), transparent 70%);
+  background-size: 22px 22px, 30px 30px;
   background-position: 0 0, 10px 10px;
 }
+/* Stronger overlay variant for sections where text needs contrast */
+.motif-overlay {
+  position: relative;
+}
+.motif-overlay::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom right, rgba(255,250,241,0.92), rgba(255,250,241,0.88));
+  pointer-events: none;
+}
+
+/* Ornaments and dividers */
+.gold-divider {
+  height: 2px; width: 96px; margin-top: 0.75rem;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 999px;
+}
+.ornament-corners {
+  position: relative;
+}
+.ornament-corners::before, .ornament-corners::after {
+  content: ""; position: absolute; width: 16px; height: 16px; border: 2px solid var(--gold);
+}
+.ornament-corners::before { top: 10px; left: 10px; border-right: 0; border-bottom: 0; border-radius: 6px 0 0 0; }
+.ornament-corners::after { bottom: 10px; right: 10px; border-left: 0; border-top: 0; border-radius: 0 0 6px 0; }
+
+/* Gradient helpers */
+.gradient-maroon {
+  background-image: linear-gradient(135deg, color-mix(in oklab, var(--maroon), #000 6%), color-mix(in oklab, var(--maroon), #fff 8%));
+}
+.gradient-gold {
+  background-image: linear-gradient(135deg, color-mix(in oklab, var(--gold), #000 5%), color-mix(in oklab, var(--gold), #fff 10%));
+}
+
+/* Animations */
+@keyframes fade-up { from { opacity: 0; transform: translateY(12px);} to { opacity:1; transform: translateY(0);} }
+@keyframes fade-in { from { opacity: 0;} to { opacity:1;} }
+@keyframes float { 0% { transform: translateY(0);} 50% { transform: translateY(-8px);} 100% { transform: translateY(0);} }
+@keyframes shimmer { 0% { background-position: -200% 0;} 100% { background-position: 200% 0;} }
+@keyframes subtle-zoom { 0% { transform: scale(1);} 100% { transform: scale(1.05);} }
+
+.animate-fade-up { animation: fade-up 600ms cubic-bezier(.22,.61,.36,1) both; }
+.animate-fade-in { animation: fade-in 700ms ease-out both; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-subtle-zoom { animation: subtle-zoom 8s ease-in-out infinite alternate; }
+.animate-shimmer { background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.5), rgba(255,255,255,0)); background-size: 200% 100%; animation: shimmer 1.8s linear infinite; }
+
+/* Advanced hover effects */
+.hover\:ring-gold:hover { box-shadow: 0 0 0 2px color-mix(in oklab, var(--gold), #000 10%) inset; }
+.hover\:shadow-gold:hover { box-shadow: 0 10px 24px -8px rgba(212,175,55,0.35); }
+.hover\:lift:hover { transform: translateY(-4px); }
+.transition-transform { transition: transform 300ms; }

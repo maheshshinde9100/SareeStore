@@ -11,11 +11,12 @@ export default function CategoryGrid() {
   return (
     <section className="section-py">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="display-title text-3xl text-maroon mb-6">Featured Categories</h2>
+        <h2 className="display-title text-3xl text-maroon mb-2">Featured Categories</h2>
+        <div className="gold-divider mb-6" />
         <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-4">
           {categories.map((c) => (
             <Link key={c.id} href={{ pathname: "/catalog", query: { category: c.id } }}>
-              <div className="group rounded-xl overflow-hidden border border-maroon/15 bg-cream shadow-sm">
+              <div className="group rounded-xl overflow-hidden border border-maroon/15 bg-cream shadow-sm transition-transform hover:lift hover:shadow-gold animate-fade-up">
                 <div className="aspect-[4/3] overflow-hidden">
                   <div
                     className="w-full h-full transition-transform duration-500 group-hover:scale-105"

@@ -11,11 +11,13 @@ export default function ProductCard({ product }) {
   const price = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR" }).format(product.price);
 
   return (
-    <div className="group rounded-xl overflow-hidden border border-maroon/15 bg-cream shadow-sm flex flex-col">
+    <div className="group rounded-xl overflow-hidden border border-maroon/15 bg-cream shadow-sm flex flex-col transition-transform hover:lift hover:shadow-gold animate-fade-up">
       <Link href={`/product/${product.slug}`} className="block">
         <div className="relative aspect-[4/5] overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-cream/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute top-2 left-2 text-cream bg-maroon/85 px-2 py-0.5 rounded text-xs shadow-sm">{product.fabric}</div>
         </div>
       </Link>
       <div className="p-4 flex-1 flex flex-col">

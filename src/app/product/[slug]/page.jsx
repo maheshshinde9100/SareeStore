@@ -75,12 +75,12 @@ export default function ProductDetailPage() {
       )}
 
       {zoom && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center" onClick={() => setZoom(false)}>
+        <div className="fixed inset-0 z-50 bg-maroon/25 backdrop-blur-sm flex items-center justify-center" onClick={() => setZoom(false)}>
           <div className="max-w-4xl w-full mx-4">
-            <div className="relative rounded-xl overflow-hidden bg-black">
+            <div className="relative rounded-xl overflow-hidden bg-cream">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={product.image} alt={product.name} className="w-full h-auto" />
-              <button className="absolute top-3 right-3 text-cream text-xl" aria-label="Close" onClick={() => setZoom(false)}>✕</button>
+              <button className="absolute top-3 right-3 text-maroon text-xl bg-cream/90 rounded-full w-8 h-8 flex items-center justify-center" aria-label="Close" onClick={() => setZoom(false)}>✕</button>
             </div>
           </div>
         </div>
